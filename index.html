@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Java Lab Record | V. Charan Teja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Intro screen: click Enter to open the website -->
+  <section class="intro" id="intro" aria-label="Welcome screen">
+    <div class="intro-orb orb-one"></div>
+    <div class="intro-orb orb-two"></div>
+    <div class="intro-content">
+      <div class="intro-mark">J<span>+</span></div>
+      <p class="eyebrow">STUDENT LAB PORTFOLIO</p>
+      <h1>Java Lab Record</h1>
+      <p class="intro-subtitle">A clean, interactive home for all 11 weeks of lab work.</p>
+      <button class="enter-button" id="enterButton" type="button">Enter Website <span aria-hidden="true">↗</span></button>
+      <p class="intro-hint">Prepared by V. Charan Teja · 25EU02129</p>
+    </div>
+    <div class="intro-bottom">JAVA LAB RECORD <span>•</span> 11 WEEKS</div>
+  </section>
+
+  <main class="site hidden" id="site">
+    <header class="hero">
+      <div class="hero-glow"></div>
+      <div class="profile-wrap">
+        <img id="profileImage" class="profile-image" src="assets/profile.jpg" alt="V. Charan Teja profile photo"
+             onerror="this.style.display='none';document.getElementById('profileFallback').style.display='grid';">
+        <div id="profileFallback" class="profile-fallback" aria-label="Profile photo placeholder">VC</div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">STUDENT PORTFOLIO</p>
+        <h1>Java Lab Record</h1>
+        <p class="student-name">V. Charan Teja</p>
+        <p class="roll-number">Roll No: <strong>25EU02129</strong></p>
+      </div>
+      <div class="hero-chip"><span class="status-dot"></span> LAB RECORD <span class="chip-divider">/</span> 11 WEEKS</div>
+    </header>
+
+    <section class="workspace">
+      <aside class="week-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">CONTENTS</p><h2>My Weeks</h2></div>
+          <span class="week-count">11 WEEKS</span>
+        </div>
+        <p class="panel-help">Choose a week to open its PDF.</p>
+        <nav class="week-list" id="weekList" aria-label="Lab record weeks"></nav>
+        <div class="panel-note"><span class="note-icon">↳</span> PDFs open in a new tab and can be downloaded.</div>
+      </aside>
+
+      <section class="viewer-panel">
+        <div class="viewer-heading">
+          <div>
+            <p class="eyebrow">DOCUMENT LIBRARY</p>
+            <h2 id="viewerTitle">Select a week</h2>
+            <p id="viewerSubtitle">Choose any week from the list to view its PDF.</p>
+          </div>
+          <span class="pdf-badge"><span class="pdf-icon">PDF</span> DOCUMENT</span>
+        </div>
+        <div class="viewer-body" id="viewerBody">
+          <div class="empty-state">
+            <div class="empty-icon">↗</div>
+            <h3>Your lab record, one click away.</h3>
+            <p>Select a week on the left. If its PDF has been uploaded to the <code>pdfs</code> folder, it will open directly.</p>
+          </div>
+        </div>
+        <div class="viewer-footer"><span class="footer-dot"></span> Your work • Your record • Your progress</div>
+      </section>
+    </section>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> V. Charan Teja</span>
+      <span>Java Lab Record <b>·</b> 25EU02129</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
