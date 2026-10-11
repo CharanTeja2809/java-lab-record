@@ -1,91 +1,27 @@
-function openWeek(weekNumber) {
 
-    // Hide all weeks
-    const weeks = document.querySelectorAll(".week-page");
 
-    weeks.forEach(function(week) {
-        week.classList.remove("active-page");
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-ready");
+
+  const cards = document.querySelectorAll(".week-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      card.style.background = `
+        radial-gradient(
+          circle at ${x}px ${y}px,
+          rgba(85, 217, 255, 0.09),
+          rgba(19, 29, 52, 0.82) 65%
+        )
+      `;
     });
 
-
-    // Show selected week
-    const selectedWeek =
-        document.getElementById("week" + weekNumber);
-
-    selectedWeek.classList.add("active-page");
-
-
-    // Change active sidebar button
-    const buttons =
-        document.querySelectorAll(".week-btn");
-
-    buttons.forEach(function(button) {
-        button.classList.remove("active");
+    card.addEventListener("pointerleave", () => {
+      card.style.background = "";
     });
-
-    buttons[weekNumber - 1].classList.add("active");
-
-
-    // Scroll to content
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-
-function showSolution(weekNumber) {
-
-    const solution =
-        document.getElementById("solution" + weekNumber);
-
-    solution.classList.toggle("show");
-
-
-    const button =
-        solution.previousElementSibling;
-
-    if (solution.classList.contains("show")) {
-
-        button.innerText = "Hide Solution";
-
-        setTimeout(function() {
-
-            solution.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }, 100);
-
-    } else {
-
-        button.innerText = "View Solution";
-
-    }
-}
-
-
-/* Small mouse movement effect */
-
-document.addEventListener("mousemove", function(event) {
-
-    const bubbles =
-        document.querySelectorAll(".background span");
-
-    const x =
-        (event.clientX / window.innerWidth - 0.5) * 20;
-
-    const y =
-        (event.clientY / window.innerHeight - 0.5) * 20;
-
-
-    bubbles.forEach(function(bubble, index) {
-
-        bubble.style.transform =
-            `translate(${x * (index + 1) / 4}px,
-                       ${y * (index + 1) / 4}px)`;
-
-    });
-
+  });
 });
